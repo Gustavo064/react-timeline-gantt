@@ -17,9 +17,9 @@ export class HeaderItem extends PureComponent {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          borderLeft: 'solid 1px white',
+          borderLeft: 'solid 1px #cfcfcd',
           position: 'absolute',
-          height: 20,
+          height: this.props.days ? 40 : 20,
           left: this.props.left,
           width: this.props.width
         }}
@@ -147,7 +147,7 @@ export default class Header extends PureComponent {
         if (bottom == 'shorttime' || bottom == 'fulltime') {
           result.bottom.push(this.renderTime(box.left, box.width, bottom, i));
         } else {
-          result.bottom.push(<HeaderItem key={i} left={box.left} width={box.width} label={currentBottom} />);
+          result.bottom.push(<HeaderItem key={i} left={box.left} width={box.width} label={currentBottom} days={true} />);
         }
       }
     }
@@ -155,12 +155,15 @@ export default class Header extends PureComponent {
     return (
       <div className="timeLine-main-header-container" style={{ width: DATA_CONTAINER_WIDTH, maxWidth: DATA_CONTAINER_WIDTH }}>
         <div className="header-top" style={{ ...Config.values.header.top.style }}>
-          {result.top}
+          <text className='text-color-header'>
+
+            {result.top}
+          </text>
         </div>
-        <div className="header-middle" style={{ ...Config.values.header.middle.style }}>
+        {/* <div className="header-middle" style={{ ...Config.values.header.middle.style }}>
           {result.middle}
-        </div>
-        <div className="header-bottom" style={{ ...Config.values.header.bottom.style }}>
+        </div> */}
+        <div className="header-middle" style={{ ...Config.values.header.bottom.style, }}>
           {result.bottom}
         </div>
       </div>

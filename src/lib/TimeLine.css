@@ -20,6 +20,7 @@
   flex-direction: column;
   overflow-y: hidden;
 }
+
 /* Main Area Header*/
 
 .timeLine-main-header-viewPort {
@@ -100,6 +101,7 @@
   text-align: center;
   padding-top: 5px;
 }
+
 /* Main Area Data*/
 
 .timeLine-main-data-viewPort {
@@ -108,7 +110,9 @@
   overflow: hidden;
   background-color: #fbf9f9;
 }
+
 .timeLine-main-data-container {
+  height: 100% !important;
   position: relative;
   top: 0;
   left: 0;
@@ -119,7 +123,9 @@
 .timeLine-main-data-row {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 40px !important;
+  padding: 15px 0px;
+
 }
 
 .timeLine-main-data-task {
@@ -138,6 +144,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .timeLine-main-data-task-side-linker {
   width: 8px;
   height: 8px;
@@ -145,10 +152,12 @@
   cursor: default;
   z-index: 100;
 }
+
 .timeLine-main-data-task-side-linker:hover {
   background-color: black;
   border: solid 0.5px grey;
 }
+
 /* .timeLine-main-data-task:hover {
     background-color:chocolate;
     border:solid 2px darkorchid;
@@ -169,7 +178,7 @@
 
 .timeLine-side-main {
   flex: 0 0 auto;
-  width: 108px;
+  width: 40% !important;
   min-width: 108px;
   display: flex;
   flex-direction: row;
@@ -182,16 +191,46 @@
   border-right: solid 1px rgb(207, 207, 205);
 }
 
+.div-column {
+  display: flex;
+  padding:  15px;
+  border-bottom: 1px solid #cfcfcd;
+  height: 62px;
+  align-items: center;
+}
+
+.div-column-items{
+  display: flex;
+  padding:  15px;
+  border-bottom: 1px solid #cfcfcd;
+  align-items: center;
+  height: 40px !important;
+}
+
+.div-row {
+width: 100%;
+
+}
+.icon-gantt {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 15px;
+
+ 
+}
+
 .verticalResizer {
-  flex: 0 0 8px;
+  /* flex: 0 0 8px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: col-resize;
+  /* cursor: col-resize; */
+  background-color:transparent !important;
   border-right: solid 1px rgb(207, 207, 205);
   height: 100%;
 }
+
 .squareGrip {
   flex: 0 0 auto;
 
@@ -221,6 +260,7 @@
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
+  height: 100% !important;
 }
 
 .timeLine-side-task-row {
@@ -240,4 +280,19 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.icon-arrow{
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.icon-percent{
+  font-size: 34px;
+  position: absolute;
+  color: black;
+  
+}
+
+.horizontal-slider{
+  margin-right: 30px;
 }

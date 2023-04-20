@@ -80,7 +80,9 @@
     "moment": "^2.24.0",
     "opencollective": "^1.0.3",
     "opencollective-postinstall": "^2.0.1",
-    "react-sizeme": "^2.5.2"
+    "react-icons": "^4.8.0",
+    "react-sizeme": "^2.5.2",
+    "react-slider": "^2.0.4"
   },
   "collective": {
     "type": "opencollective",

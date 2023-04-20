@@ -14,7 +14,7 @@ export class DataRow extends Component {
     return (
       <div
         className="timeLine-main-data-row"
-        style={{ ...Config.values.dataViewPort.rows.style, top: this.props.top, height: this.props.itemheight }}
+        style={{ ...Config.values.dataViewPort.rows.style, top: this.props.top * 2, height: this.props.itemheight }}
       >
         {this.props.children}
       </div>
@@ -57,6 +57,7 @@ export class DataViewPort extends Component {
                 left={new_position}
                 width={new_width}
                 height={this.props.itemheight}
+                onChangePercent={this.props.onChangePercent}
                 onChildDrag={this.onChildDrag}
                 isSelected={this.props.selectedItem == item}
                 onSelectItem={this.props.onSelectItem}

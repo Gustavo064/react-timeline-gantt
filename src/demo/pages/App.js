@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TimeLine from 'libs/TimeLine';
 import Generator from './Generator';
 import './App.css';
+import moment from 'moment';
 
 const config = {
   header: {
@@ -104,9 +105,18 @@ class App extends Component {
     this.setState({ data: result });
   };
 
-  onSelectItem = (item) => {
-    console.log(`Select Item ${item}`);
+  onPercent = (value) => {
+    console.log('asdasdasd', { value })
+    // return value
+  };
+
+  onSelectItem = (item, field) => {
+    console.log(`Select Item ${item}`, { field, item });
     this.setState({ selectedItem: item });
+  };
+  onOpenChildren = (item, value) => {
+    console.log('asdasdasd', { item, value });
+    // this.setState({ selectedItem: item });
   };
 
   onUpdateTask = (item, props) => {
@@ -180,6 +190,7 @@ class App extends Component {
   };
 
   render() {
+
     return (
       <div className="app-container">
         <div className="nav-container">
@@ -241,9 +252,11 @@ class App extends Component {
             data={this.state.data}
             links={this.state.links}
             onHorizonChange={this.onHorizonChange}
+            onChangePercent={this.onPercent}
             onSelectItem={this.onSelectItem}
             onUpdateTask={this.onUpdateTask}
             onCreateLink={this.onCreateLink}
+            onOpenChildren={this.onOpenChildren}
             mode={this.state.timelineMode}
             itemheight={this.state.itemheight}
             selectedItem={this.state.selectedItem}

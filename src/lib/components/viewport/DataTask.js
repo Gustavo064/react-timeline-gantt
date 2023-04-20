@@ -3,6 +3,8 @@ import DateHelper from 'libs/helpers/DateHelper';
 import { MODE_NONE, MODE_MOVE, MOVE_RESIZE_LEFT, MOVE_RESIZE_RIGHT } from 'libs/Const';
 import { LINK_POS_LEFT, LINK_POS_RIGHT } from 'libs/Const';
 import Config from 'libs/helpers/config/Config';
+import ReactSlider from 'react-slider'
+import { MdArrowDropUp } from "react-icons/md";
 
 export default class DataTask extends Component {
   constructor(props) {
@@ -142,6 +144,8 @@ export default class DataTask extends Component {
   }
   render() {
     let style = this.calculateStyle();
+    const { item } = this.props;
+    console.log({ style, props: this.props })
     return (
       <div
         onMouseDown={(e) => this.doMouseDown(e, MODE_MOVE)}
@@ -149,7 +153,7 @@ export default class DataTask extends Component {
         onClick={(e) => {
           this.props.onSelectItem(this.props.item);
         }}
-        style={style}
+        style={{ ...style, top: 10, borderRadius: 5, height: 20, }}
       >
         <div
           className="timeLine-main-data-task-side"
@@ -163,7 +167,18 @@ export default class DataTask extends Component {
             onTouchEnd={(e) => this.onCreateLinkTouchEnd(e, LINK_POS_LEFT)}
           />
         </div>
-        <div style={{ overflow: 'hidden' }}>{Config.values.dataViewPort.task.showLabel ? this.props.item.name : ''}</div>
+        <ReactSlider
+          className="horizontal-slider"
+          thumbClassName="example-thumb"
+          trackClassName="example-track"
+          defaultValue={item.percent}
+          onSliderClick={this.props.onChangePercent}
+          renderThumb={(props, state) => <div {...props}>
+            <MdArrowDropUp className='icon-percent' />
+          </div>}
+        />
+
+        <div style={{ overflow: 'hidden', marginTop: 3 }}>{item.name}</div>
         <div
           className="timeLine-main-data-task-side"
           style={{ top: 0, left: style.width - 3, height: style.height }}

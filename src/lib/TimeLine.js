@@ -108,7 +108,7 @@ class TimeLine extends Component {
     let rowInfo = this.calculateStartEndRows(this.state.numVisibleRows, this.props.data, scrollTop);
     if (rowInfo.start !== this.state.start) {
       this.setState(
-       {
+        {
           scrollTop: scrollTop,
           startRow: rowInfo.start,
           endRow: rowInfo.end
@@ -162,7 +162,7 @@ class TimeLine extends Component {
     //Got you
     this.setStartEnd();
     this.setState(
-       {
+      {
         currentday: currentIndx,
         nowposition: new_nowposition,
         headerData: headerData,
@@ -172,6 +172,10 @@ class TimeLine extends Component {
       }
     );
   };
+  onChangePercent = (value) => {
+
+    if (this.props.onChangePercent && value != this.props.onChangePercent) this.props.onChangePercent(value);
+  }
 
   calculateVerticalScrollVariables = (size) => {
     //The pixel to scroll verically is equal to the pecentage of what the viewport represent in the context multiply by the context width
@@ -249,9 +253,13 @@ class TimeLine extends Component {
   //   ITEMS EVENTS  //
   /////////////////////
 
-  onSelectItem = (item) => {
-    if (this.props.onSelectItem && item != this.props.selectedItem) this.props.onSelectItem(item);
+  onSelectItem = (item, field) => {
+    if (this.props.onSelectItem && item != this.props.selectedItem) this.props.onSelectItem(item, field);
   };
+  onOpenChildren = (item, value) => {
+    if (this.props.onOpenChildren && item != this.props.onOpenChildren) this.props.onOpenChildren(item, value);
+  };
+
 
   onStartCreateLink = (task, position) => {
     console.log(`Start Link ${task}`);
@@ -319,7 +327,7 @@ class TimeLine extends Component {
     this.checkMode();
     this.checkNeeeData();
     console.log('On render')
-    if(!this.state.size){
+    if (!this.state.size) {
       console.log(this.state)
     }
     return (
@@ -333,6 +341,7 @@ class TimeLine extends Component {
             data={this.props.data}
             selectedItem={this.props.selectedItem}
             onSelectItem={this.onSelectItem}
+            onOpenChildren={this.onOpenChildren}
             onUpdateTask={this.props.onUpdateTask}
             onScroll={this.verticalChange}
             nonEditable={this.props.nonEditableName}
@@ -362,6 +371,7 @@ class TimeLine extends Component {
             dayWidth={this.state.dayWidth}
             onScroll={this.scrollData}
             onMouseDown={this.doMouseDown}
+            onChangePercent={this.onChangePercent}
             onMouseMove={this.doMouseMove}
             onMouseUp={this.doMouseUp}
             onMouseLeave={this.doMouseLeave}

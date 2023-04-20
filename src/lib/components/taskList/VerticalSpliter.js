@@ -42,10 +42,6 @@ export default class VerticalSpliter extends Component {
   render() {
     return (
       <div className="verticalResizer" style={Config.values.taskList.verticalSeparator.style} onMouseDown={this.doMouseDown}>
-        <div className="squareGrip" style={Config.values.taskList.verticalSeparator.grip.style}></div>
-        <div className="squareGrip" style={Config.values.taskList.verticalSeparator.grip.style}></div>
-        <div className="squareGrip" style={Config.values.taskList.verticalSeparator.grip.style}></div>
-        <div className="squareGrip" style={Config.values.taskList.verticalSeparator.grip.style}></div>
       </div>
     );
   }

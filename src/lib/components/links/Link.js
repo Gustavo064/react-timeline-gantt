@@ -31,7 +31,7 @@ class Link extends Component {
     let coordinates = null;
     if (this.props.start.x > this.props.end.x) {
       coordinates = this.calcSCoordinates();
-      return `M${this.props.start.x} ${this.props.start.y}  ${coordinates.cpt1.x} ${coordinates.cpt1.y} ${coordinates.cpt2.x} ${coordinates.cpt2.y} ${coordinates.cpt3.x} ${coordinates.cpt3.y} ${coordinates.cpt4.x} ${coordinates.cpt4.y} ${this.props.end.x} ${this.props.end.y}`;
+      return `M${this.props.start.x  } ${this.props.start.y * 2 }  ${coordinates.cpt1.x} ${coordinates.cpt1.y * 2} ${coordinates.cpt2.x} ${coordinates.cpt2.y * 2} ${coordinates.cpt3.x} ${coordinates.cpt3.y * 2} ${coordinates.cpt4.x} ${coordinates.cpt4.y * 2} ${this.props.end.x} ${this.props.end.y * 2}`;
     } else {
       coordinates = this.calcNormCoordinates();
       return `M${this.props.start.x} ${this.props.start.y}  ${coordinates.cpt1.x} ${coordinates.cpt1.y} ${coordinates.cpt2.x} ${coordinates.cpt2.y} ${this.props.end.x} ${this.props.end.y}`;
