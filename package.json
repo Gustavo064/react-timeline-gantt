@@ -1,7 +1,7 @@
 {
-  "name": "react-gantt-timeline",
+  "name": "react-gantt-timeline-repository",
   "version": "0.4.3",
-  "description": "",
+  "description": "[![npm](https://img.shields.io/npm/v/react-gantt-timeline.svg?style=flat-square)](http://npm.im/react-gantt-timeline) [![MIT License](https://img.shields.io/npm/l/react-list.svg?style=flat-square)](http://opensource.org/licenses/MIT) [![Travis](https://travis-ci.org/guiqui/react-timeline-gantt.svg?branch=master)](https://travis-ci.org/guiqui/react-timeline-gantt) [![codecov](https://codecov.io/gh/guiqui/react-timeline-gantt/branch/master/graph/badge.svg)](https://codecov.io/gh/guiqui/react-timeline-gantt) [![Backers on Open Collective](https://opencollective.com/react-timeline-gantt/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/react-timeline-gantt/sponsors/badge.svg)](#sponsors)  [![downloads](https://img.shields.io/npm/dt/react-gantt-timeline.svg?maxAge=2592000)](https://www.npmjs.com/package/react-gantt-timeline)",
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --config webpack.config.demo.js ",
@@ -87,5 +87,15 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/react-timeline-gantt"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gustavo064/react-timeline-gantt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gustavo064/react-timeline-gantt/issues"
   }
 }
